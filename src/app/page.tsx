@@ -3,6 +3,7 @@ import { ConnectButton } from "@/components/ConnectButton";
 import { InfoList } from "@/components/InfoList";
 import { ActionButtonList } from "@/components/ActionButtonList";
 import Image from 'next/image';
+import { AddProxy } from "../components/AddProxy";
 
 export default function Home() {
 
@@ -19,6 +20,9 @@ export default function Home() {
         </p>
       </div>
       <InfoList />
+
+      {/* To test add proxy contact call: Add Proxy */}
+      <AddProxy />
     </div>
   );
 }
