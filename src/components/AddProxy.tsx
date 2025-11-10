@@ -152,6 +152,7 @@ export const AddProxy = (): JSX.Element => {
 
   const addProxy = async () => {
     writeContract({
+      chainId: 55931,
       address: PROXY_CONTRACT_ADDRESS,
       abi: ABI,
       functionName: 'addProxy',
