@@ -149,7 +149,7 @@ export const PROXY_CONTRACT_ADDRESS =
   '0x000000000000000000000000000000000000080b';
 
 export const AddProxy = (): JSX.Element => {
-  const { address, isConnected, status, isLoading } = useAppKitAccount();
+  const { address, isConnected, status } = useAppKitAccount();
 
   console.count('--------------------------------');
   console.log('address', address);
