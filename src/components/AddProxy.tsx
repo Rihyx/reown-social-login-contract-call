@@ -1,5 +1,6 @@
 'use client';
 
+import { useAppKitAccount } from '@reown/appkit/react';
 import type { JSX } from 'react';
 import { useWriteContract } from 'wagmi';
 
@@ -148,6 +149,14 @@ export const PROXY_CONTRACT_ADDRESS =
   '0x000000000000000000000000000000000000080b';
 
 export const AddProxy = (): JSX.Element => {
+  const { address, isConnected, status, isLoading } = useAppKitAccount();
+
+  console.count('--------------------------------');
+  console.log('address', address);
+  console.log('isConnected', isConnected);
+  console.log('status', status);
+  console.log('--------------------------------');
+
   const { writeContract, data, isPending, isError, error } = useWriteContract();
 
   const addProxy = async () => {
