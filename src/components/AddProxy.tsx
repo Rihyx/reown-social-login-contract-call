@@ -3,6 +3,8 @@
 import { useAppKitAccount } from '@reown/appkit/react';
 import type { JSX } from 'react';
 import { useWriteContract } from 'wagmi';
+import { dataHavenTestnet } from '../config';
+import { defineChain } from 'viem';
 
 export const ABI = [
     {
@@ -148,6 +150,30 @@ export const ABI = [
 export const PROXY_CONTRACT_ADDRESS =
   '0x000000000000000000000000000000000000080b';
 
+
+const viemDataHavenTestnet =defineChain({
+  id: 55931,
+  name: "DataHaven Testnet",
+  chainNamespace: 'eip155',
+  caipNetworkId: `eip155:55931`,
+  testnet: true,
+  nativeCurrency: {
+    name: "MOCK",
+    symbol: "MOCK",
+    decimals: 18,
+  },
+  rpcUrls: {
+    default: { http: ['https://services.datahaven-testnet.network/testnet'] },
+    public: { http: ['https://services.datahaven-testnet.network/testnet'] },
+  },
+  blockExplorers: {
+    default: {
+      name: "DataHaven Testnet",
+      url: "https://polkadot.js.org/apps?rpc=wss://services.datahaven-testnet.network/testnet#/explorer/query/",
+    },
+  },
+});
+
 export const AddProxy = (): JSX.Element => {
   const { address, isConnected, status } = useAppKitAccount();
 
@@ -161,7 +187,7 @@ export const AddProxy = (): JSX.Element => {
 
   const addProxy = async () => {
     writeContract({
-      chainId: 55931,
+      chain: viemDataHavenTestnet,
       address: PROXY_CONTRACT_ADDRESS,
       abi: ABI,
       functionName: 'addProxy',

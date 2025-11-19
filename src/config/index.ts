@@ -4,11 +4,12 @@ import type { AppKitNetwork } from '@reown/appkit/networks'
 
 
 
-const dataHavenTestnet: AppKitNetwork = defineChain({
+export const dataHavenTestnet: AppKitNetwork = defineChain({
   id: 55931,
   name: "DataHaven Testnet",
   chainNamespace: 'eip155',
   caipNetworkId: `eip155:55931`,
+  testnet: true,
   nativeCurrency: {
     name: "MOCK",
     symbol: "MOCK",
@@ -21,7 +22,7 @@ const dataHavenTestnet: AppKitNetwork = defineChain({
   blockExplorers: {
     default: {
       name: "DataHaven Testnet",
-      url: "https://polkadot.js.org/apps?rpc=wss://services.datahaven-testnet.network/testnet#/explorer/query/$",
+      url: "https://polkadot.js.org/apps?rpc=wss://services.datahaven-testnet.network/testnet#/explorer/query/",
     },
   },
 });
